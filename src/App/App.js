@@ -23,13 +23,19 @@ class App extends React.Component {
     this.setState({ goats });
   };
 
+  freeAGoat = (goatId) => {
+    goatData.freeGoat(goatId);
+    const goats = goatData.getGoats();
+    this.setState({ goats });
+  };
+
   render() {
     // inside the render - anything we need to do to modify the UI
     const { goats } = this.state;
     return (
     <div className="App">
       <h1>GOAT YOGA LTD</h1>
-      <GoatCoral goats={goats} useAGoat={this.useAGoat}/>
+      <GoatCoral goats={goats} useAGoat={this.useAGoat} freeAGoat={this.freeAGoat}/>
     </div>
     );
   }
